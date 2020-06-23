@@ -12,6 +12,9 @@
 		136DF3FA24A2701100B0CABD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 136DF3F824A2701100B0CABD /* Main.storyboard */; };
 		136DF3FC24A2701300B0CABD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 136DF3FB24A2701300B0CABD /* Assets.xcassets */; };
 		136DF3FF24A2701300B0CABD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 136DF3FD24A2701300B0CABD /* LaunchScreen.storyboard */; };
+		13F8FBC424A27A47005DD6DE /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F8FBC324A27A47005DD6DE /* Cell.swift */; };
+		13F8FBC724A27BB1005DD6DE /* GameOfLifeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F8FBC624A27BB1005DD6DE /* GameOfLifeViewController.swift */; };
+		13F8FBCA24A27BEC005DD6DE /* GameBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F8FBC924A27BEC005DD6DE /* GameBoard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +25,9 @@
 		136DF3FB24A2701300B0CABD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		136DF3FE24A2701300B0CABD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		136DF40024A2701300B0CABD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		13F8FBC324A27A47005DD6DE /* Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
+		13F8FBC624A27BB1005DD6DE /* GameOfLifeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOfLifeViewController.swift; sourceTree = "<group>"; };
+		13F8FBC924A27BEC005DD6DE /* GameBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameBoard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +62,9 @@
 			children = (
 				136DF40624A279A800B0CABD /* Application */,
 				136DF40724A279CE00B0CABD /* Storyboards */,
+				13F8FBC824A27BB6005DD6DE /* View Controllers */,
+				13F8FBCB24A27BF1005DD6DE /* Views */,
+				13F8FBC524A27A4B005DD6DE /* Models */,
 			);
 			path = "Conway's Game Of Life";
 			sourceTree = "<group>";
@@ -78,6 +87,30 @@
 				136DF3F824A2701100B0CABD /* Main.storyboard */,
 			);
 			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		13F8FBC524A27A4B005DD6DE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				13F8FBC324A27A47005DD6DE /* Cell.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		13F8FBC824A27BB6005DD6DE /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				13F8FBC624A27BB1005DD6DE /* GameOfLifeViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		13F8FBCB24A27BF1005DD6DE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				13F8FBC924A27BEC005DD6DE /* GameBoard.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -153,6 +186,9 @@
 			files = (
 				136DF3F324A2701100B0CABD /* AppDelegate.swift in Sources */,
 				136DF3F524A2701100B0CABD /* SceneDelegate.swift in Sources */,
+				13F8FBCA24A27BEC005DD6DE /* GameBoard.swift in Sources */,
+				13F8FBC424A27A47005DD6DE /* Cell.swift in Sources */,
+				13F8FBC724A27BB1005DD6DE /* GameOfLifeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
