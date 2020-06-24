@@ -38,6 +38,7 @@ public class GameBoard: NSObject {
     }
 
     func generateRandomCells() {
+        cells.removeAll()
         var id = 0
         for x in 0..<size {
             for y in 0..<size {
