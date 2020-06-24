@@ -17,7 +17,6 @@ class GameOfLifeViewController: UIViewController {
     // MARK: - Properties
     var isPlaying: Bool = false
     var buttons: [UIButton] = []
-    var colors: [UIColor] = [.black, .red, .green, .yellow, .purple, .cyan, .darkGray, .brown, .orange, .magenta]
 
     // MARK: - View Lifecycle
     override func viewDidLoad() {
@@ -46,24 +45,29 @@ class GameOfLifeViewController: UIViewController {
 
         for _ in 0..<25 {
             for _ in 0..<25 {
+
                 let button = UIButton()
-                //button.backgroundColor = colors[Int.random(in: 0...9)]
                 button.backgroundColor = .clear
                 button.tag = identifier
                 golView.addSubview(button)
                 button.translatesAutoresizingMaskIntoConstraints = false
                 button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
-                button.topAnchor.constraint(equalTo: golView.topAnchor, constant: topOffset).isActive = true
-                button.leadingAnchor.constraint(equalTo: golView.leadingAnchor, constant: leadingOffset).isActive = true
-                button.heightAnchor.constraint(equalToConstant: 15).isActive = true
-                button.widthAnchor.constraint(equalToConstant: 15).isActive = true
+
+                NSLayoutConstraint.activate([
+                    button.topAnchor.constraint(equalTo: golView.topAnchor, constant: topOffset),
+                    button.leadingAnchor.constraint(equalTo: golView.leadingAnchor, constant: leadingOffset),
+                    button.heightAnchor.constraint(equalToConstant: 15),
+                    button.widthAnchor.constraint(equalToConstant: 15)
+                ])
+
                 buttons.append(button)
 
                 topOffset += 15
+                identifier += 1
+
                 if topOffset >= 375 {
                     topOffset = 0
                 }
-                identifier += 1
             }
             leadingOffset += 15
         }
