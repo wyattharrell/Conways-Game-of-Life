@@ -15,7 +15,7 @@ protocol PresetSelectedDelegate: AnyObject {
 class LibraryTableViewController: UITableViewController {
 
     // MARK: - Properties
-    private let library: [String] = ["Pulsar", "Glider", "Spaceship", "Border"]
+    private let library: [String] = ["Pulsar", "Glider", "Spaceship"]
     weak var delegate: PresetSelectedDelegate?
 
     // MARK: - View Lifecycle
@@ -29,9 +29,10 @@ class LibraryTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "LibraryCell", for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "LibraryCell", for: indexPath) as? LibraryTableViewCell else { return UITableViewCell() }
 
-        cell.textLabel?.text = library[indexPath.row]
+        cell.presetImageView.image = UIImage(named: library[indexPath.row])
+        cell.presetTitle.text = library[indexPath.row]
 
         return cell
     }
