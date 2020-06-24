@@ -25,8 +25,8 @@ public class GameBoard {
         }
     }
 
-    public func updateCells() {
-        var updatedCells = [Cell]()
+    func updateCells() {
+        var updatedCells: [Cell] = []
         let liveCells = cells.filter { $0.state == .alive }
         var id = 0
         for cell in cells {
@@ -47,9 +47,7 @@ public class GameBoard {
         cells = updatedCells
     }
 
-    public func cellTapped(at index: Int) {
-        //print("Cell ID: \(cell.identifier)")
-
+    func cellTapped(at index: Int) {
         var cell = cells[index]
         if cell.state == .alive {
             cell.state = .dead
@@ -57,5 +55,18 @@ public class GameBoard {
             cell.state = .alive
         }
         cells[index] = cell
+    }
+
+    func clearBoard() {
+        var id = 0
+        var deadCells: [Cell] = []
+        for x in 0..<size {
+            for y in 0..<size {
+                let cell = Cell(x: x, y: y, state: .dead, identifier: id)
+                deadCells.append(cell)
+                id += 1
+            }
+        }
+        cells = deadCells
     }
 }

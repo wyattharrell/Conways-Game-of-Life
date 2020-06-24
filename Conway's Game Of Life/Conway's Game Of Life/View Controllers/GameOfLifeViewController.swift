@@ -10,6 +10,7 @@ import UIKit
 
 class GameOfLifeViewController: UIViewController {
 
+    // MARK: - IBOutlets
     @IBOutlet weak var playButton: UIButton!
     @IBOutlet var golView: GOLView!
     @IBOutlet weak var rulesButton: UIButton!
@@ -90,10 +91,10 @@ class GameOfLifeViewController: UIViewController {
     }
 
     @IBAction func clearButtonTapped(_ sender: Any) {
-
+        golView.clearBoard()
     }
 
     @IBAction func skipButtonTapped(_ sender: Any) {
-
+        golView.skipForward()
     }
 }

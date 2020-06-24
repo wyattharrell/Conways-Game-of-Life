@@ -10,8 +10,9 @@ import UIKit
 
 class GOLView: UIView {
 
+    // MARK: - Properties
     var gameBoard: GameBoard = GameBoard(size: 25)
-    var cellSize: Int = 15
+    private var cellSize: Int = 15
     private var timer: Timer?
 
     public convenience init(worldSize: Int, cellSize: Int) {
@@ -34,7 +35,7 @@ class GOLView: UIView {
         super.init(frame: frame)
     }
 
-    public override func draw(_ rect: CGRect) {
+    override func draw(_ rect: CGRect) {
         let context = UIGraphicsGetCurrentContext()
         context?.saveGState()
 
@@ -46,11 +47,20 @@ class GOLView: UIView {
             context?.fill(rect)
         }
         context?.restoreGState()
-
     }
 
     public func cellTapped(at index: Int) {
         gameBoard.cellTapped(at: index)
+        setNeedsDisplay()
+    }
+
+    func clearBoard() {
+        gameBoard.clearBoard()
+        setNeedsDisplay()
+    }
+
+    func skipForward() {
+        gameBoard.updateCells()
         setNeedsDisplay()
     }
     
