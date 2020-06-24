@@ -18,11 +18,14 @@ class GameOfLifeViewController: UIViewController {
     @IBOutlet weak var skipButton: UIButton!
     @IBOutlet weak var libraryButton: UIButton!
     @IBOutlet weak var generationLabel: UILabel!
+    @IBOutlet weak var populationLabel: UILabel!
 
     // MARK: - Properties
     var isPlaying: Bool = false
     var buttons: [UIButton] = []
-    private var observer: NSKeyValueObservation?
+    private var generationObserver: NSKeyValueObservation?
+    private var populationObserver: NSKeyValueObservation?
+
 
     // MARK: - View Lifecycle
     override func viewDidLoad() {
@@ -30,8 +33,12 @@ class GameOfLifeViewController: UIViewController {
         setupViews()
         setupButtons()
 
-        observer = golView.gameBoard.observe(\.generation) { [weak self] object, change in
-            self?.generationLabel.text = "Generation: \(object.generation)"
+        generationObserver = golView.gameBoard.observe(\.generation) { [weak self] object, change in
+            self?.generationLabel.text = "Generation\n\(object.generation)"
+        }
+
+        populationObserver = golView.gameBoard.observe(\.population) { [weak self] object, change in
+            self?.populationLabel.text = "Population\n\(object.population)"
         }
     }
 
@@ -40,8 +47,8 @@ class GameOfLifeViewController: UIViewController {
         clearButton.layer.cornerRadius = 8
         skipButton.layer.cornerRadius = 8
         playButton.layer.cornerRadius = 8
-        libraryButton.layer.cornerRadius = 15
-        rulesButton.layer.cornerRadius = 15
+        libraryButton.layer.cornerRadius = 8
+        rulesButton.layer.cornerRadius = 8
         golView.layer.shadowColor = UIColor.lightGray.cgColor
         golView.layer.shadowOffset = CGSize(width: 0, height: 1.0)
         golView.layer.shadowRadius = 2.0

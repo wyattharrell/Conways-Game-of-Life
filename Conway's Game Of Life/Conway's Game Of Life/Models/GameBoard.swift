@@ -9,13 +9,35 @@
 import Foundation
 
 public class GameBoard: NSObject {
-    var cells: [Cell] = []
+    var cells: [Cell] = [] {
+        didSet {
+            updatePopulation()
+        }
+    }
     let size: Int
     @objc dynamic var generation: Int
+    @objc dynamic var population: Int
 
     public init(size: Int) {
         self.size = size
         self.generation = 0
+        self.population = cells.filter{ $0.state == .alive }.count
+        var id = 0
+        for x in 0..<size {
+            for y in 0..<size {
+                let randomState = arc4random_uniform(3)
+                let cell = Cell(x: x, y: y, state: randomState == 0 ? .alive : .dead, identifier: id)
+                cells.append(cell)
+                id += 1
+            }
+        }
+    }
+
+    private func updatePopulation() {
+        population = cells.filter{ $0.state == .alive }.count
+    }
+
+    func generateRandomCells() {
         var id = 0
         for x in 0..<size {
             for y in 0..<size {
@@ -30,6 +52,7 @@ public class GameBoard: NSObject {
     func updateCells() {
         var updatedCells: [Cell] = []
         let liveCells = cells.filter { $0.state == .alive }
+//        population = liveCells.count
         var id = 0
         for cell in cells {
             let livingNeighbors = liveCells.filter { $0.isNeighbor(to: cell) }
