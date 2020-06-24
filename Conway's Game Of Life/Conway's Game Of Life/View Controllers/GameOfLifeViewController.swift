@@ -78,7 +78,12 @@ class GameOfLifeViewController: UIViewController {
     @IBAction func playButtonTapped(_ sender: Any) {
         isPlaying.toggle()
         playButton.isSelected = isPlaying
-        golView.autoRun()
+
+        if isPlaying {
+            golView.startRunning()
+        } else {
+            golView.cancelTimer()
+        }
     }
 
 

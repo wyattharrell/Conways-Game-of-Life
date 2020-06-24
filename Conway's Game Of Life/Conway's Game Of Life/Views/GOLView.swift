@@ -12,7 +12,7 @@ class GOLView: UIView {
 
     var gameBoard: GameBoard = GameBoard(size: 25)
     var cellSize: Int = 15
-    var timer: Timer?
+    private var timer: Timer?
 
     public convenience init(worldSize: Int, cellSize: Int) {
         let frame = CGRect(x: 0, y: 0, width: worldSize * cellSize, height: worldSize * cellSize)
@@ -53,5 +53,22 @@ class GOLView: UIView {
         gameBoard.cellTapped(at: index)
         setNeedsDisplay()
     }
-
+    
+    public func startRunning() {
+        timer = Timer.scheduledTimer(timeInterval: 0.2,
+                                     target: self,
+                                     selector: #selector(startUpdating),
+                                     userInfo: nil,
+                                     repeats: true)
+    }
+    
+    func cancelTimer() {
+        timer?.invalidate()
+        timer = nil
+    }
+    
+    @objc private func startUpdating() {
+        self.gameBoard.updateCells()
+        self.setNeedsDisplay()
+    }
 }

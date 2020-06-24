@@ -15,11 +15,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lbx-Yf-gFh" customClass="GameBoard" customModule="Conway_s_Game_Of_Life" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lbx-Yf-gFh" customClass="GOLView" customModule="Conway_s_Game_Of_Life" customModuleProvider="target">
                                 <rect key="frame" x="20" y="160" width="374" height="374"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="Lbx-Yf-gFh" secondAttribute="height" multiplier="1:1" id="OXG-sf-9fz"/>
+                                    <constraint firstAttribute="height" constant="374" id="tg4-RS-BOF"/>
+                                    <constraint firstAttribute="width" constant="374" id="yaa-t8-XR5"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="imv-2t-fow">
@@ -31,6 +32,7 @@
                                 </constraints>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" image="play.fill" catalog="system"/>
+                                <state key="selected" image="pause.fill" catalog="system"/>
                                 <connections>
                                     <action selector="playButtonTapped:" destination="oUg-hv-T8Y" eventType="touchUpInside" id="KxX-HB-DPE"/>
                                 </connections>
@@ -64,7 +66,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Conway's Game of Life" id="A3K-0n-H6m"/>
                     <connections>
-                        <outlet property="gameBoard" destination="Lbx-Yf-gFh" id="yPT-vF-EGD"/>
+                        <outlet property="golView" destination="Lbx-Yf-gFh" id="0QN-fS-eGz"/>
                         <outlet property="playButton" destination="imv-2t-fow" id="b9v-Qn-j80"/>
                         <outlet property="rulesButton" destination="c2y-05-eyI" id="Hlm-uU-r7P"/>
                     </connections>
@@ -108,6 +110,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="pause.fill" catalog="system" width="116" height="128"/>
         <image name="play.fill" catalog="system" width="116" height="128"/>
     </resources>
 </document>
