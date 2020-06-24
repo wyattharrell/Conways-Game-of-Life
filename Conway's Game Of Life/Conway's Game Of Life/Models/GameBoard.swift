@@ -70,4 +70,89 @@ public class GameBoard {
         }
         cells = deadCells
     }
+
+    func showPresent(present: Int) {
+        switch present {
+        case 0:
+            // Pulsar
+            var cell = cells[310]
+            cell.state = .alive
+            cells[310] = cell
+
+            cell = cells[314]
+            cell.state = .alive
+            cells[314] = cell
+
+            for i in 360...364 {
+                cell = cells[i]
+                cell.state = .alive
+                cells[i] = cell
+            }
+
+            for i in 260...264 {
+                cell = cells[i]
+                cell.state = .alive
+                cells[i] = cell
+            }
+        case 1:
+            var cell = cells[312]
+            cell.state = .alive
+            cells[312] = cell
+
+            cell = cells[338]
+            cell.state = .alive
+            cells[338] = cell
+
+            cell = cells[339]
+            cell.state = .alive
+            cells[339] = cell
+
+            cell = cells[314]
+            cell.state = .alive
+            cells[314] = cell
+
+            cell = cells[289]
+            cell.state = .alive
+            cells[289] = cell
+        case 2:
+            var cell = cells[264]
+            cell.state = .alive
+            cells[264] = cell
+
+            cell = cells[262]
+            cell.state = .alive
+            cells[262] = cell
+
+            cell = cells[286]
+            cell.state = .alive
+            cells[286] = cell
+
+            cell = cells[311]
+            cell.state = .alive
+            cells[311] = cell
+
+            cell = cells[336]
+            cell.state = .alive
+            cells[336] = cell
+
+            cell = cells[361]
+            cell.state = .alive
+            cells[361] = cell
+
+            cell = cells[362]
+            cell.state = .alive
+            cells[362] = cell
+
+            cell = cells[363]
+            cell.state = .alive
+            cells[363] = cell
+
+            cell = cells[339]
+            cell.state = .alive
+            cells[339] = cell
+        default:
+            print("Error showing library present")
+        }
+
+    }
 }

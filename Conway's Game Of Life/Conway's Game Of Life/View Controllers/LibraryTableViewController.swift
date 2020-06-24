@@ -12,14 +12,10 @@ protocol PresetSelectedDelegate: AnyObject {
     func displayPreset(for present: Int)
 }
 
-enum PresetLibrary: Int {
-    case pulsar
-}
-
 class LibraryTableViewController: UITableViewController {
 
     // MARK: - Properties
-    private let library: [String] = ["Pulsar"]
+    private let library: [String] = ["Pulsar", "Glider", "Spaceship"]
     weak var delegate: PresetSelectedDelegate?
 
     // MARK: - View Lifecycle

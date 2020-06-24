@@ -63,6 +63,12 @@ class GOLView: UIView {
         gameBoard.updateCells()
         setNeedsDisplay()
     }
+
+    func showPresent(present: Int) {
+        gameBoard.clearBoard()
+        gameBoard.showPresent(present: present)
+        setNeedsDisplay()
+    }
     
     public func startRunning() {
         timer = Timer.scheduledTimer(timeInterval: 0.2,

@@ -115,6 +115,6 @@ class GameOfLifeViewController: UIViewController {
 
 extension GameOfLifeViewController: PresetSelectedDelegate {
     func displayPreset(for present: Int) {
-        print(present)
+        golView.showPresent(present: present)
     }
 }
