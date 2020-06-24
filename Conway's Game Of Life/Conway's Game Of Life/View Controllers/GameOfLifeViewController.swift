@@ -16,6 +16,7 @@ class GameOfLifeViewController: UIViewController {
     @IBOutlet weak var rulesButton: UIButton!
     @IBOutlet weak var clearButton: UIButton!
     @IBOutlet weak var skipButton: UIButton!
+    @IBOutlet weak var libraryButton: UIButton!
 
     // MARK: - Properties
     var isPlaying: Bool = false
@@ -30,17 +31,17 @@ class GameOfLifeViewController: UIViewController {
 
     // MARK: - Private Methods
     private func setupViews() {
-        golView.layer.cornerRadius = 8
         clearButton.layer.cornerRadius = 8
         skipButton.layer.cornerRadius = 8
+        playButton.layer.cornerRadius = 8
+        libraryButton.layer.cornerRadius = 15
+        rulesButton.layer.cornerRadius = 15
         golView.layer.shadowColor = UIColor.lightGray.cgColor
         golView.layer.shadowOffset = CGSize(width: 0, height: 1.0)
         golView.layer.shadowRadius = 2.0
         golView.layer.shadowOpacity = 0.5
         golView.layer.masksToBounds = false
         golView.clipsToBounds = false
-        playButton.layer.cornerRadius = 8
-        rulesButton.layer.cornerRadius = 15
     }
 
     private func setupButtons() {
@@ -96,5 +97,9 @@ class GameOfLifeViewController: UIViewController {
 
     @IBAction func skipButtonTapped(_ sender: Any) {
         golView.skipForward()
+    }
+
+    @IBAction func unwindToGOL( _ seg: UIStoryboardSegue) {
+        dismiss(animated: true, completion: nil)
     }
 }
