@@ -72,43 +72,48 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="7ph-gl-c13">
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="7ph-gl-c13">
                                 <rect key="frame" x="20" y="542" width="374" height="30"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Generation: 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GmD-WQ-rAt">
-                                        <rect key="frame" x="0.0" y="0.0" width="195.5" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="183" height="30"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6fk-1V-ml3">
-                                        <rect key="frame" x="203.5" y="0.0" width="84" height="30"/>
-                                        <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="1ci-d8-1HW"/>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="75" id="rzE-mx-Nw2"/>
-                                        </constraints>
-                                        <state key="normal" title="Library">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <connections>
-                                            <segue destination="n3z-bZ-Nez" kind="presentation" identifier="LibraryModalSegue" id="5Ap-G6-Ctf"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c2y-05-eyI">
-                                        <rect key="frame" x="295.5" y="0.0" width="78.5" height="30"/>
-                                        <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="DlU-Rf-hBX"/>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="75" id="Gb9-Re-elo"/>
-                                        </constraints>
-                                        <state key="normal" title="Rules">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <connections>
-                                            <segue destination="LY4-eV-RJg" kind="presentation" id="AJX-oK-ceG"/>
-                                        </connections>
-                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="dnN-TI-SdY">
+                                        <rect key="frame" x="191" y="0.0" width="183" height="30"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6fk-1V-ml3">
+                                                <rect key="frame" x="0.0" y="0.0" width="87.5" height="30"/>
+                                                <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="1ci-d8-1HW"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="75" id="rzE-mx-Nw2"/>
+                                                </constraints>
+                                                <state key="normal" title="Library">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <segue destination="n3z-bZ-Nez" kind="presentation" identifier="LibraryModalSegue" id="5Ap-G6-Ctf"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c2y-05-eyI">
+                                                <rect key="frame" x="95.5" y="0.0" width="87.5" height="30"/>
+                                                <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="DlU-Rf-hBX"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="75" id="Gb9-Re-elo"/>
+                                                </constraints>
+                                                <state key="normal" title="Rules">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <segue destination="LY4-eV-RJg" kind="presentation" id="AJX-oK-ceG"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -128,6 +133,7 @@
                     <navigationItem key="navigationItem" title="Conway's Game of Life" id="A3K-0n-H6m"/>
                     <connections>
                         <outlet property="clearButton" destination="LG0-mn-aED" id="fYg-tZ-tzc"/>
+                        <outlet property="generationLabel" destination="GmD-WQ-rAt" id="PgU-qg-b5r"/>
                         <outlet property="golView" destination="Lbx-Yf-gFh" id="0QN-fS-eGz"/>
                         <outlet property="libraryButton" destination="6fk-1V-ml3" id="oGh-H2-lMp"/>
                         <outlet property="playButton" destination="imv-2t-fow" id="b9v-Qn-j80"/>

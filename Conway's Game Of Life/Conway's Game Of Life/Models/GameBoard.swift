@@ -8,12 +8,14 @@
 
 import Foundation
 
-public class GameBoard {
-    public var cells: [Cell] = []
-    public let size: Int
+public class GameBoard: NSObject {
+    var cells: [Cell] = []
+    let size: Int
+    @objc dynamic var generation: Int
 
     public init(size: Int) {
         self.size = size
+        self.generation = 0
         var id = 0
         for x in 0..<size {
             for y in 0..<size {
@@ -45,6 +47,7 @@ public class GameBoard {
         }
 
         cells = updatedCells
+        generation += 1
     }
 
     func cellTapped(at index: Int) {
@@ -69,6 +72,7 @@ public class GameBoard {
             }
         }
         cells = deadCells
+        generation = 0
     }
 
     func showPresent(present: Int) {

@@ -17,16 +17,22 @@ class GameOfLifeViewController: UIViewController {
     @IBOutlet weak var clearButton: UIButton!
     @IBOutlet weak var skipButton: UIButton!
     @IBOutlet weak var libraryButton: UIButton!
+    @IBOutlet weak var generationLabel: UILabel!
 
     // MARK: - Properties
     var isPlaying: Bool = false
     var buttons: [UIButton] = []
+    private var observer: NSKeyValueObservation?
 
     // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
         setupButtons()
+
+        observer = golView.gameBoard.observe(\.generation) { [weak self] object, change in
+            self?.generationLabel.text = "Generation: \(object.generation)"
+        }
     }
 
     // MARK: - Private Methods
