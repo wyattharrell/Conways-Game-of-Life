@@ -102,4 +102,19 @@ class GameOfLifeViewController: UIViewController {
     @IBAction func unwindToGOL( _ seg: UIStoryboardSegue) {
         dismiss(animated: true, completion: nil)
     }
+
+    // MARK: - Segue
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "LibraryModalSegue" {
+            let destinationNavigationController = segue.destination as! UINavigationController
+            guard let targetController = destinationNavigationController.topViewController as? LibraryTableViewController else { return }
+            targetController.delegate = self
+        }
+    }
+}
+
+extension GameOfLifeViewController: PresetSelectedDelegate {
+    func displayPreset(for present: Int) {
+        print(present)
+    }
 }

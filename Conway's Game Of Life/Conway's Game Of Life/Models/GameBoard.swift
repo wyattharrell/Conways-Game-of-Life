@@ -49,6 +49,7 @@ public class GameBoard {
 
     func cellTapped(at index: Int) {
         var cell = cells[index]
+        print("Cell ID: \(cell.identifier)")
         if cell.state == .alive {
             cell.state = .dead
         } else {

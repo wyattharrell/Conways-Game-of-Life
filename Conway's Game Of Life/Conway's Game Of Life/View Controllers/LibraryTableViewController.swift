@@ -8,7 +8,19 @@
 
 import UIKit
 
+protocol PresetSelectedDelegate: AnyObject {
+    func displayPreset(for present: Int)
+}
+
+enum PresetLibrary: Int {
+    case pulsar
+}
+
 class LibraryTableViewController: UITableViewController {
+
+    // MARK: - Properties
+    private let library: [String] = ["Pulsar"]
+    weak var delegate: PresetSelectedDelegate?
 
     // MARK: - View Lifecycle
     override func viewDidLoad() {
@@ -17,13 +29,13 @@ class LibraryTableViewController: UITableViewController {
 
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return library.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "LibraryCell", for: indexPath)
 
-        cell.textLabel?.text = "Testing"
+        cell.textLabel?.text = library[indexPath.row]
 
         return cell
     }
@@ -31,6 +43,8 @@ class LibraryTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath)
         cell?.accessoryType = .checkmark
-        dismiss(animated: true, completion: nil)
+        dismiss(animated: true) {
+            self.delegate?.displayPreset(for: indexPath.row)
+        }
     }
 }
