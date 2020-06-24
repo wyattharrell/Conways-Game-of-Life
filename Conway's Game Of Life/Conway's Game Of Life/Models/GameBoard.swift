@@ -150,6 +150,36 @@ public class GameBoard {
             cell = cells[339]
             cell.state = .alive
             cells[339] = cell
+        case 3:
+            for i in 0...24 {
+                var cell = cells[i]
+                cell.state = .alive
+                cells[i] = cell
+            }
+
+            for i in 600...624 {
+                var cell = cells[i]
+                cell.state = .alive
+                cells[i] = cell
+            }
+
+            var i = 0
+
+            while i != 600 {
+                var cell = cells[i]
+                cell.state = .alive
+                cells[i] = cell
+                i += 25
+            }
+
+            i = 24
+
+            while i != 624 {
+                var cell = cells[i]
+                cell.state = .alive
+                cells[i] = cell
+                i += 25
+            }
         default:
             print("Error showing library present")
         }
