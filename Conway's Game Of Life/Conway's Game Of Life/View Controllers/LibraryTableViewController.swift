@@ -15,7 +15,7 @@ protocol PresetSelectedDelegate: AnyObject {
 class LibraryTableViewController: UITableViewController {
 
     // MARK: - Properties
-    private let library: [String] = ["Pulsar", "Glider", "Spaceship"]
+    private let library: [String] = ["Random", "Pulsar", "Glider", "Spaceship"]
     weak var delegate: PresetSelectedDelegate?
 
     // MARK: - View Lifecycle

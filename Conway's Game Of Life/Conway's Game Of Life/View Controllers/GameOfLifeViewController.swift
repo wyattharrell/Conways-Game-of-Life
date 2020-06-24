@@ -33,6 +33,8 @@ class GameOfLifeViewController: UIViewController {
         setupViews()
         setupButtons()
 
+        populationLabel.text = "Population\n\(golView.gameBoard.population)"
+
         generationObserver = golView.gameBoard.observe(\.generation) { [weak self] object, change in
             self?.generationLabel.text = "Generation\n\(object.generation)"
         }

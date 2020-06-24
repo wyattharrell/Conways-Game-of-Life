@@ -21,7 +21,6 @@ public class GameBoard: NSObject {
     public init(size: Int) {
         self.size = size
         self.generation = 0
-        self.population = cells.filter{ $0.state == .alive }.count
         var id = 0
         for x in 0..<size {
             for y in 0..<size {
@@ -31,6 +30,7 @@ public class GameBoard: NSObject {
                 id += 1
             }
         }
+        self.population = cells.filter{ $0.state == .alive }.count
     }
 
     private func updatePopulation() {
@@ -52,7 +52,6 @@ public class GameBoard: NSObject {
     func updateCells() {
         var updatedCells: [Cell] = []
         let liveCells = cells.filter { $0.state == .alive }
-//        population = liveCells.count
         var id = 0
         for cell in cells {
             let livingNeighbors = liveCells.filter { $0.isNeighbor(to: cell) }
@@ -100,7 +99,10 @@ public class GameBoard: NSObject {
 
     func showPresent(present: Int) {
         switch present {
+
         case 0:
+            generateRandomCells()
+        case 1:
             // Pulsar
             var cell = cells[310]
             cell.state = .alive
@@ -121,7 +123,7 @@ public class GameBoard: NSObject {
                 cell.state = .alive
                 cells[i] = cell
             }
-        case 1:
+        case 2:
             var cell = cells[312]
             cell.state = .alive
             cells[312] = cell
@@ -141,7 +143,7 @@ public class GameBoard: NSObject {
             cell = cells[289]
             cell.state = .alive
             cells[289] = cell
-        case 2:
+        case 3:
             var cell = cells[264]
             cell.state = .alive
             cells[264] = cell
@@ -177,7 +179,7 @@ public class GameBoard: NSObject {
             cell = cells[339]
             cell.state = .alive
             cells[339] = cell
-        case 3:
+        case 4:
             for i in 0...24 {
                 var cell = cells[i]
                 cell.state = .alive
