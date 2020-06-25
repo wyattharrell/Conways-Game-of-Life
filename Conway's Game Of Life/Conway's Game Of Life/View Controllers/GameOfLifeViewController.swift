@@ -26,14 +26,11 @@ class GameOfLifeViewController: UIViewController {
     private var generationObserver: NSKeyValueObservation?
     private var populationObserver: NSKeyValueObservation?
 
-
     // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
         setupButtons()
-
-        populationLabel.text = "Population\n\(golView.gameBoard.population)"
 
         generationObserver = golView.gameBoard.observe(\.generation) { [weak self] object, change in
             self?.generationLabel.text = "Generation\n\(object.generation)"
@@ -46,6 +43,7 @@ class GameOfLifeViewController: UIViewController {
 
     // MARK: - Private Methods
     private func setupViews() {
+        populationLabel.text = "Population\n\(golView.gameBoard.population)"
         clearButton.layer.cornerRadius = 8
         skipButton.layer.cornerRadius = 8
         playButton.layer.cornerRadius = 8

@@ -9,25 +9,28 @@
 import Foundation
 import UIKit
 
-public enum State {
+enum State {
     case alive
     case dead
 }
 
-public struct Cell {
-    public var state: State
-    public let identifier: Int
-    public let x: Int
-    public let y: Int
+struct Cell {
 
-    public init(x: Int, y: Int, state: State, identifier: Int) {
+    // MARK: - Properties
+    var state: State
+    let identifier: Int
+    let x: Int
+    let y: Int
+
+    init(x: Int, y: Int, state: State, identifier: Int) {
         self.x = x
         self.y = y
         self.state = state
         self.identifier = identifier
     }
 
-    public func isNeighbor(to cell: Cell) -> Bool {
+    // MARK: - Methods
+    func isNeighbor(to cell: Cell) -> Bool {
         let xDelta = abs(self.x - cell.x)
         let yDelta = abs(self.y - cell.y)
 

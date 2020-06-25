@@ -13,5 +13,4 @@ class LibraryTableViewCell: UITableViewCell {
     // MARK: - Properties
     @IBOutlet weak var presetImageView: UIImageView!
     @IBOutlet weak var presetTitle: UILabel!
-
 }

@@ -8,17 +8,20 @@
 
 import Foundation
 
-public class GameBoard: NSObject {
+class GameBoard: NSObject {
+
+    // MARK: - Properties
+    @objc dynamic var generation: Int
+    @objc dynamic var population: Int
+    let size: Int
+
     var cells: [Cell] = [] {
         didSet {
             updatePopulation()
         }
     }
-    let size: Int
-    @objc dynamic var generation: Int
-    @objc dynamic var population: Int
 
-    public init(size: Int) {
+    init(size: Int) {
         self.size = size
         self.generation = 0
         var id = 0
@@ -33,10 +36,12 @@ public class GameBoard: NSObject {
         self.population = cells.filter{ $0.state == .alive }.count
     }
 
+    // MARK: - Private Methods
     private func updatePopulation() {
         population = cells.filter{ $0.state == .alive }.count
     }
 
+    // MARK: - Public Methods
     func generateRandomCells() {
         cells.removeAll()
         var id = 0
@@ -68,7 +73,6 @@ public class GameBoard: NSObject {
             }
             id += 1
         }
-
         cells = updatedCells
         generation += 1
     }

@@ -15,23 +15,23 @@ class GOLView: UIView {
     private var cellSize: Int = 15
     private var timer: Timer?
 
-    public convenience init(worldSize: Int, cellSize: Int) {
+    convenience init(worldSize: Int, cellSize: Int) {
         let frame = CGRect(x: 0, y: 0, width: worldSize * cellSize, height: worldSize * cellSize)
         self.init(frame: frame)
         self.gameBoard = GameBoard(size: worldSize)
         self.cellSize = cellSize
     }
 
-    public convenience init() {
+    convenience init() {
         let frame = CGRect(x: 0, y: 0, width: 1000, height: 1000)
         self.init(frame: frame)
     }
 
-    public required init?(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
 
-    public override init(frame: CGRect) {
+    override init(frame: CGRect) {
         super.init(frame: frame)
     }
 
@@ -49,7 +49,7 @@ class GOLView: UIView {
         context?.restoreGState()
     }
 
-    public func cellTapped(at index: Int) {
+    func cellTapped(at index: Int) {
         gameBoard.cellTapped(at: index)
         setNeedsDisplay()
     }
@@ -70,7 +70,7 @@ class GOLView: UIView {
         setNeedsDisplay()
     }
     
-    public func startRunning() {
+    func startRunning() {
         timer = Timer.scheduledTimer(timeInterval: 0.2,
                                      target: self,
                                      selector: #selector(startUpdating),
